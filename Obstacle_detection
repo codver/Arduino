@@ -1,0 +1,29 @@
+//26-11-2020 Obstacle Detection using IR Sensor
+
+const int irsensor=2;
+const int led = 13;
+
+//VCC of IR connected to 5V, gnd to ground and out to pin 2 on arduino board
+//led positive to resistor 100 ohm and the other end of resistor to pin 13
+//negative of led to ground pin on arduino board
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(irsensor,INPUT);
+  pinMode(led,OUTPUT);
+}
+
+void loop()
+{
+  int statussensor=digitalRead(irsensor);
+
+  if(statussensor==1)
+  {
+    digitalWrite(led,LOW);
+  }
+  else
+  {
+    digitalWrite(led,HIGH);
+  }
+}
